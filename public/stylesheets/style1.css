@@ -1,0 +1,38 @@
+body {
+  background-image: url(../images/background1.jpeg);
+  font-family: Raleway, sans-serif;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+}
+
+.navcontainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: white
+}
+
+.navlist {
+  width: 100%;
+  list-style: none;
+  display: inline-flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.navlist li {
+    width: 17%;
+}
+
+#main {
+  height: 400px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 100px;
+  color: white;
+}
