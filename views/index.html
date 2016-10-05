@@ -1,9 +1,48 @@
 {% extends 'layout.html' %}
 
+{% block image %}
+	<div id="home-bg"> </div>
+{% endblock %}
 
 {% block body %}
-	<div id="main"></div>
-	<h1 class="pageHeader">WELCOME TO TRIP PLANNER!</h1>
+	<div id="home-space"></div>
+	<div id="welcome" onclick="clickFunc()">
+		<div id="show3">
+			<div class="square">
+				<select class="menuList">
+				{% for hotel in hotels %}
+				<option>{{hotel.name}}</option>
+				{% endfor %}
+				</select>
+			</div>
+			<div class="square restaurant">
+				<select class="menuList">
+
+				  {% for restaurant in restaurants %}
+				<option> {{restaurant.name}} </option>
+					{% endfor %}
+
+				</select>
+			</div>
+			<div class="square">
+				<select class="menuList">
+				{% for activity in activities %}
+				<option> {{activity.name}}</option>
+				{% endfor %}
+
+				</select>
+			</div>		 
+		</div>
+
+		<h1 class="pageHeader" id="entry">DISCOVER NYC</h1>
+			<p id="pp">CLICK</p>
+		
+	</div>
+
+
+ 
+   
 
 
 {% endblock %}
+

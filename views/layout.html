@@ -6,6 +6,7 @@
 	<title>Trip Planner</title>
 </head>
 <body>
+	{% block image %} {% endblock %}
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container navcontainer">
 			<ol class="navlist">
@@ -17,9 +18,12 @@
 			</ol>
 		</div>
 	</nav>
-	<div id="main"></div>
+	
 {% block body %} {% endblock %}
+
+
 <footer></footer>
+
 
 	<!-- <iframe
   width="600"
@@ -28,5 +32,14 @@
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBm90PhPugCz-vwk3dgUZQlb2Mkg_htuHA
     &q=New+York+NY" allowfullscreen>
 	</iframe> -->
+	 <script type="text/javascript"> 
+      	function clickFunc() {
+      		document.getElementById("entry")
+      			.style.opacity = 0;
+      			document.getElementById("pp")
+      			.style.opacity = 0; 
+      	}
+      </script>
+
 </body>
 </html>

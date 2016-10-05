@@ -22,9 +22,10 @@ app.set('view engine', 'html');
 app.use('/',express.static(__dirname + '/public'));
 app.use('/',express.static(__dirname + '/node_modules/jquery/dist/'));
 
-app.get('/', function(req, res, next){
-	res.render('index');
-});
+app.use('/', routes);
+
+
+
 
 // not found middleware
 app.use(function(req, res, next){

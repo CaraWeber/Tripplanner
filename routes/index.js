@@ -6,15 +6,18 @@ var Place = require('../models/place');
 var Hotel = require('../models/hotel');
 var Restaurant = require('../models/restaurant');
 var Activity = require('../models/activity');
+ 
 
-
-router.get('/',function(req,res) {
-  var hotels,
+router.get('/tripplanner/activities', function (req, res, next){
+  res.render('activities');
+});
+ 
+router.get('/tripplanner', function(req, res, next){
+var hotels,
       restaurants,
       activities;
 
-  Promise.all([Hotel.findAll({})
-    .then(), Restaurant.findAll({}).then(),Activity.findAll({}).then()])
+  Promise.all([Hotel.findAll({}), Restaurant.findAll({}),Activity.findAll({})])
     .spread(function (_hotels,_restaurants,_activities) {
       hotels = _hotels;
       restaurants = _restaurants;
@@ -27,9 +30,24 @@ router.get('/',function(req,res) {
       restaurants : restaurants,
       activities : activities
     });
-
 });
 
-router.get('/activities', function (req, res, next){
-  res.render('activities');
-})
+router.get('/',function(req,res, next) {
+  var hotels,
+      restaurants,
+      activities;
+
+  Promise.all([Hotel.findAll({}), Restaurant.findAll({}), Activity.findAll({})])
+    .spread(function (_hotels,_restaurants,_activities) {
+      res.render('index', {
+      hotels : _hotels,
+      restaurants : _restaurants,
+      activities : _activities
+    });
+    })
+    .catch(next);
+});
+
+
+
+module.exports = router;
